@@ -3,7 +3,7 @@ import random
 from time import sleep
 pygame.init()
 pygame.mixer.init()
-def jiance(wide_x,wide_y,high_x,high_y,lei_xing):
+def jiance(wide_x,wide_y,high_x,high_y,lei_xin):
     for event in pygame.event.get():
         if event.type==pygame.KEYDOWN:
             pass
@@ -12,7 +12,7 @@ def jiance(wide_x,wide_y,high_x,high_y,lei_xing):
             button = event.button
             if wide_x <=mouse_x<=wide_y   :
                 if high_x<= mouse_y <=high_y :
-                    if lei_xing ==1:
+                    if lei_xin ==1:
                         return 0
         if event.type == pygame.QUIT:
             pygame.quit()

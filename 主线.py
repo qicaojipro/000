@@ -18,6 +18,5 @@ def game_while() :
         w=jiance(0,512,0,256,1)
         if w==0:
             print("yes")
-
 game_while()
 
