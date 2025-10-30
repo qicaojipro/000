@@ -11,4 +11,7 @@ class juese:
         self.age=age
         self.haogan = haogan
         self.tupian = tupian
+    def weizhi(self,x,y):
+        self.tupian.weizhi=(x,y)
+
 bob=juese(name="bob",age= 18,haogan=50,tupian=kaishi)
