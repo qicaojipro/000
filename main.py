@@ -45,9 +45,10 @@ class scence:
         return False
 
 class guanli:
-    def __init__(self,changjin):
+    def __init__(self,changjin,juese):
         self.scenes=changjin
         self.dangqiangeshu=0
+        self.people=juese
     def dangqianchangjin(self):
         return self.scenes[self.dangqiangeshu]
     def next_changjin(self):
@@ -58,23 +59,36 @@ class guanli:
             print("game over")
             pygame.quit()
             sys.exit()
+    def juesechuxian(self,x,y):
+        self.people[self.dangqiangeshu].xianshi(x,y)
+
+
+dog=juese("nima",18,"something/1.1.png")
+dog2=juese("nima2",18,"something/1.2.png")
 scence1=scence("something/无标题.png",["yes","第二句","第三局","第一章没了"])
 scence2=scence("something/1.1.png",["di2一句","第2二句","第2三局","第2章没了"])
-guanliyixia=guanli([scence1 ,scence2 ])
+guanliyixia=guanli([scence1 ,scence2 ],[dog,dog2])
 clock=pygame.time.Clock()
 running=True
+
 while running:
     gameScreen.fill((0,0,0))
     cj=guanliyixia .dangqianchangjin()
     cj.display()
+    guanliyixia.juesechuxian(0, 0)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running =False
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
                 changjin_done=cj.huanci()
+
                 if changjin_done:
+                    """if event.type == pygame.MOUSEBUTTONDOWN:
+                        mouse_x, mouse_y = event.pos"""
                     guanliyixia.next_changjin()
+
+
     pygame.display.flip()
     clock.tick(30)
 
